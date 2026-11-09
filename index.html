@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOLYIX — Разлом Пустоты</title>
+<style>
+  :root {
+    --bg: #07060d;
+    --glass: rgba(22, 18, 38, 0.88);
+    --border: rgba(255, 105, 198, 0.28);
+    --pink: #ff69c6;
+    --violet: #8b5cf6;
+    --text: #f8f7ff;
+    --muted: #a39cc2;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at 50% 0%, #1e133b 0%, var(--bg) 60%);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  nav {
+    background: rgba(7, 6, 13, 0.9);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky; top: 0; z-index: 10;
+  }
+  .brand { font-size: 24px; font-weight: 900; color: #fff; text-decoration: none; letter-spacing: 2px; }
+  .brand span { color: var(--pink); }
+  .nav-links a { color: var(--muted); text-decoration: none; margin-left: 20px; font-weight: 600; font-size: 14px; }
+  .nav-links a:hover { color: var(--pink); }
+
+  .hero {
+    max-width: 1100px; margin: 0 auto; padding: 70px 24px;
+    display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 36px; align-items: center;
+  }
+  .badge {
+    display: inline-block; background: rgba(255,105,198,0.16); border: 1px solid var(--pink);
+    color: var(--pink); padding: 6px 14px; border-radius: 99px; font-size: 12px; font-weight: 800; margin-bottom: 16px;
+  }
+  h1 {
+    font-size: 52px; font-weight: 900; line-height: 1.08; margin-bottom: 18px;
+    background: linear-gradient(135deg, #fff 30%, #ff69c6 80%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .hero p { color: var(--muted); font-size: 17px; margin-bottom: 28px; }
+  .ip-box {
+    display: inline-flex; align-items: center; gap: 16px;
+    background: var(--glass); border: 1.5px solid var(--pink);
+    padding: 8px 8px 8px 20px; border-radius: 16px;
+    box-shadow: 0 0 30px rgba(255,105,198,0.25);
+  }
+  .ip-val { font-size: 20px; font-weight: 900; color: #fff; }
+  .btn {
+    background: linear-gradient(135deg, var(--pink), var(--violet));
+    border: none; color: #fff; padding: 14px 24px; border-radius: 12px;
+    font-weight: 800; font-size: 14px; cursor: pointer;
+  }
+  .btn:hover { opacity: 0.9; }
+
+  .cat-card {
+    background: var(--glass); border: 1.5px solid var(--pink);
+    border-radius: 24px; padding: 28px; text-align: center;
+    box-shadow: 0 0 35px rgba(255,105,198,0.2);
+  }
+  section { max-width: 1100px; margin: 0 auto; padding: 60px 24px; }
+  h2 { font-size: 32px; font-weight: 900; text-align: center; margin-bottom: 10px; }
+  .sub { text-align: center; color: var(--muted); margin-bottom: 36px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+  .card {
+    background: var(--glass); border: 1px solid var(--border);
+    border-radius: 20px; padding: 26px;
+  }
+  .card:hover { border-color: var(--pink); }
+  .card h3 { color: var(--pink); font-size: 19px; margin-bottom: 10px; }
+  .card p { color: #d6d0f0; font-size: 14px; }
+  .rule {
+    background: var(--glass); border-left: 4px solid var(--pink);
+    padding: 18px 22px; border-radius: 12px; margin-bottom: 12px;
+  }
+  .rule.ban { border-left-color: #ff4d6d; }
+  footer { text-align: center; padding: 40px; border-top: 1px solid var(--border); color: var(--muted); font-size: 14px; }
+  @media (max-width: 800px) { .hero { grid-template-columns: 1fr; text-align: center; } .nav-links { display: none; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="#" class="brand">FOLY<span>IX</span></a>
+  <div class="nav-links">
+    <a href="#lore">Лор Разлома</a>
+    <a href="#modes">4 Осколка</a>
+    <a href="#end">Единый Энд</a>
+    <a href="#tournaments">Турниры</a>
+    <a href="#rules">Правила</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div>
+    <div class="badge">🚫 100% БЕЗ ДОНАТА • JAVA 1.21.11 • ЯНВАРЬ 2027</div>
+    <h1>РАЗЛОМ ПУСТОТЫ</h1>
+    <p>Мир раскололся на 4 независимых Осколка, объединённых через Единый Энд. Никаких платных привилегий и кейсов за деньги — только чистый скилл и честная борьба.</p>
+    <div class="ip-box">
+      <span class="ip-val" id="ip">folyix.x2mc.ru</span>
+      <button class="btn" id="copy-btn" onclick="copyIP()">Скопировать IP</button>
+    </div>
+  </div>
+
+  <div class="cat-card" onclick="nextPhrase()" style="cursor:pointer;">
+    <svg width="130" height="130" viewBox="0 0 16 16" shape-rendering="crispEdges">
+      <rect x="2" y="1" width="2" height="3" fill="#ff69c6"/>
+      <rect x="12" y="1" width="2" height="3" fill="#ff69c6"/>
+      <rect x="3" y="2" width="1" height="2" fill="#ffb3e1"/>
+      <rect x="12" y="2" width="1" height="2" fill="#ffb3e1"/>
+      <rect x="2" y="4" width="12" height="9" fill="#ff69c6"/>
+      <rect x="3" y="7" width="3" height="2" fill="#1a0b2e"/>
+      <rect x="10" y="7" width="3" height="2" fill="#1a0b2e"/>
+      <rect x="4" y="7" width="1" height="1" fill="#e879f9"/>
+      <rect x="11" y="7" width="1" height="1" fill="#e879f9"/>
+      <rect x="7" y="9" width="2" height="1" fill="#ffd6ef"/>
+      <rect x="6" y="10" width="4" height="2" fill="#ffb3e1"/>
+      <rect x="4" y="13" width="8" height="2" fill="#ff47b6"/>
+    </svg>
+    <h3 style="color:#ff69c6; margin:10px 0 6px;">ХРАНИТЕЛЬ РАЗЛОМА</h3>
+    <p id="cat-text" style="font-size:13px; color:#e9d8fd;">«Мяу. В Разломе деньги из реального мира не стоят и гнилой плоти. Покажи свой скилл!»</p>
+    <p style="font-size:11px; color:#a39cc2; margin-top:8px;">(Кликни по коту)</p>
+  </div>
+</div>
+
+<section id="lore">
+  <h2>🌌 ЛОР РАЗЛОМА ПУСТОТЫ</h2>
+  <p class="sub">История мира, расколотого древним катаклизмом</p>
+  <div class="grid">
+    <div class="card">
+      <h3>Раскол на 4 Осколка</h3>
+      <p>Древний выброс энергии Пустоты разорвал единую реальность на четыре мира: суровый SMP, безжалостную Анархию, PvP-арену и часовую Королевскую битву. Переход между ними идёт через физические порталы в Хабе, где игроки соревнуются на столбе «Царь горы» и паркуре.</p>
+    </div>
+    <div class="card">
+      <h3>Единый Энд и Розовый Кот</h3>
+      <p>Единственной точкой пересечения всех миров стал Постоянный Энд — безопасная зона торговцев с изоляцией инвентарей. За порядком у порталов следит Розовый Кот, который крутит шалкеры с префиксами и сжигает забытые в сундуках артефакты.</p>
+    </div>
+  </div>
+</section>
+
+<section id="modes">
+  <h2>⚔️ ЧЕТЫРЕ ОСКОЛКА</h2>
+  <p class="sub">Выбирай свой путь через порталы Хаба</p>
+  <div class="grid">
+    <div class="card">
+      <h3>👑 Королевская битва</h3>
+      <p>Каждый час свежая карта 3000×3000 до 100 игроков. 00:00 мирный старт, 00:10 PvP, 00:30 Незер, 00:45 подсветка игроков под землёй и сжатие зоны до 100×100. Победа = 10 монет.</p>
+    </div>
+    <div class="card">
+      <h3>🌿 SMP (Осколок Порядка)</h3>
+      <p>Мир 50 000 × 50 000 с приватами и своим Незером. Хардкорная экономика на базе мира: всё добывается трудом. Главный трофей — единственная Булава.</p>
+    </div>
+    <div class="card">
+      <h3>💀 Анархия (Осколок Хаоса)</h3>
+      <p>Мир 50 000 × 50 000 без приватов и правил. Обычные Элитры вырезаны — единственные крылья разыгрываются в ежемесячном рейде.</p>
+    </div>
+    <div class="card">
+      <h3>🗡️ PvP-арена</h3>
+      <p>Авторская арена, построенная с нуля вручную без схематик. Готовые киты и система пати для боёв с другом.</p>
+    </div>
+  </div>
+</section>
+<section id="end">
+  <h2>🔮 ЕДИНЫЙ ЭНД И РУЛЕТКА</h2>
+  <p class="sub">Инвентари и магазины (~50 монет) изолированы под режим входа</p>
+  <div class="grid">
+    <div class="card">
+      <h3>Вход из КБ</h3>
+      <p>Постоянная прокачка стартового кита для будущих каток. Жёсткий потолок баланса — строго до кольчужной брони.</p>
+    </div>
+    <div class="card">
+      <h3>Вход из Анархии</h3>
+      <p>Покупка кристаллов Энда, обсидиана, динамита (TNT) и тотемов бессмертия для рейдов за монеты.</p>
+    </div>
+    <div class="card">
+      <h3>Вход из SMP и PvP</h3>
+      <p>Для SMP — еда, зелья и ресурсы выживания. Для PvP-арены — только визуальная косметика без влияния на урон.</p>
+    </div>
+    <div class="card">
+      <h3>Шалкеры в Хабе</h3>
+      <p>Обычный шалкер за 150 монет (5 префиксов) и Редкий за 300 монет (5 префиксов). Турнирные и админские теги в них не падают!</p>
+    </div>
+  </div>
+</section>
+
+<section id="tournaments">
+  <h2>🏆 ПЕРВОПРОХОДЦЫ И ТУРНИРЫ МЕСЯЦА</h2>
+  <p class="sub">На открытии первые 5 человек (по 1 на Хаб, КБ, SMP, Анархию и PvP) получают [Первопроходец] навсегда</p>
+  <div class="grid">
+    <div class="card">
+      <h3>[Чемпион месяца] и [Киберубийца]</h3>
+      <p>Уникальные префиксы на 1 месяц для топ-1 по победам в Королевской битве и на PvP-арене.</p>
+    </div>
+    <div class="card">
+      <h3>Единственные Булава и Элитры</h3>
+      <p>Награды на 1 месяц за турниры SMP и Анархии. Если пролежат в эндер-сундуке 7 дней подряд — сгорают + бан на турниры на месяц. При смерти выпадают как трофей!</p>
+    </div>
+  </div>
+</section>
+
+<section id="rules">
+  <h2>📜 ПРАВИЛА ПРОЕКТА</h2>
+  <p class="sub">Коротко и без лишней душноты</p>
+  <div class="rule">
+    <strong>1.1. Свобода критики администрации</strong>
+    <p style="font-size:14px; color:#d6d0f0; margin-top:4px;">Конструктивная и жёсткая критика админов, баланса и обновлений разрешена. Мы не баним за несогласие.</p>
+  </div>
+  <div class="rule ban">
+    <strong>1.2. Оскорбление родных — БАН НАВСЕГДА</strong>
+    <p style="font-size:14px; color:#d6d0f0; margin-top:4px;">Любые упоминания и оскорбления родителей или родственников караются перманентным баном без апелляции.</p>
+  </div>
+  <div class="rule ban">
+    <strong>1.3. Деанон и слив данных — БАН НАВСЕГДА</strong>
+    <p style="font-size:14px; color:#d6d0f0; margin-top:4px;">Поиск, публикация или угрозы слива личных данных ведут к вечной блокировке на всех ресурсах проекта.</p>
+  </div>
+  <div class="rule ban">
+    <strong>2.1. Запрет читов и боевых авто-модов</strong>
+    <p style="font-size:14px; color:#d6d0f0; margin-top:4px;">Запрещены любые чит-клиенты, X-Ray, FreeCam, а также моды на авто-свап Элитр (Elytra Swapper) и Булавы.</p>
+  </div>
+</section>
+
+<footer>
+  <b>FOLYIX</b> — Разлом Пустоты • IP: <b>folyix.x2mc.ru</b> • Java 1.21.11 • Открытие: Январь 2027 🐱
+</footer>
+
+<script>
+  function copyIP() {
+    navigator.clipboard.writeText('folyix.x2mc.ru');
+    const btn = document.getElementById('copy-btn');
+    btn.innerText = '✅ Скопировано!';
+    setTimeout(() => { btn.innerText = 'Скопировать IP'; }, 2000);
+  }
+  const phrases = [
+    '«Мяу. В Разломе деньги из реального мира не стоят и гнилой плоти. Покажи свой скилл!»',
+    '«Спрячешь Элитры в эндер-сундук на 7 дней — я лично сожгу их в пламени Пустоты!»',
+    '«В Королевской битве на 45-й минуте в пещерах не отсидишься — я подсвечу каждого крота!»',
+    '«Копи 150 монет на Обычный шалкер или 300 на Редкий — проверим твою удачу!»'
+  ];
+  let idx = 0;
+  function nextPhrase() {
+    idx = (idx + 1) % phrases.length;
+    document.getElementById('cat-text').innerText = phrases[idx];
+  }
+</script>
+</body>
+</html>
